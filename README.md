@@ -11,7 +11,5 @@ kubebuilder create api --group net --version v1 --kind MutilCniNetwork
 在/api/v1/MutilCniNetwork 把MutilCniNetworkSpec 新增逻辑代码 例如我们要支持多个网络 那么可以定义cnis，然后，重新生成代码和二进制
 make manifests generate
 
-打算做一个支持多网络的crd
-1.用户cr触发当前controller
-2.该controller启动daemonset,在/etc/cni/net.d下删除配置，并去cr中读取相关的数据，将数据组装成一个cni的配置
-3.
+
+bin/controller-gen的作用可以手动生成crd rbac等文件
