@@ -30,6 +30,13 @@ type MutilCniNetworkSpec struct {
 
 	// Foo is an example field of MutilCniNetwork. Edit mutilcninetwork_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
+	//TODO
+	//多个CNI对象，默认第一个cni作为主要网络 返回给k8s
+	CNIs []CNI `json:"cnis"`
+}
+
+type CNI struct {
+	
 }
 
 // MutilCniNetworkStatus defines the observed state of MutilCniNetwork
