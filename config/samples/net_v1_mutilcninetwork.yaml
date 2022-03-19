@@ -1,0 +1,6 @@
+apiVersion: net.linshanyu.com/v1
+kind: MutilCniNetwork
+metadata:
+  name: mutilcninetwork-sample
+spec:
+  # TODO(user): Add fields here

@@ -1,0 +1,16 @@
+domain: linshanyu.com
+layout:
+- go.kubebuilder.io/v3
+projectName: network-operator
+repo: network-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: linshanyu.com
+  group: net
+  kind: MutilCniNetwork
+  path: network-operator/api/v1
+  version: v1
+version: "3"
