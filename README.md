@@ -13,3 +13,10 @@ make manifests generate
 
 
 bin/controller-gen的作用可以手动生成crd rbac等文件
+
+
+支持pod多网络
+1.Initializer，给pod添加一个网络代理容器
+2.用户的cr指定labelselector的pod
+3.当用户新创建出来的pod 符合labelselector的做一下处理，容器中的网络代理负责处理容器中的路由等
+4.容器外的daemonset负责host的路由等操作
