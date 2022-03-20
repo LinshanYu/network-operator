@@ -18,8 +18,8 @@ package controllers
 
 import (
 	"context"
-
 	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/klog/v2"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
@@ -50,7 +50,20 @@ func (r *MutilCniNetworkReconciler) Reconcile(ctx context.Context, req ctrl.Requ
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
-
+	ni := &netv1.MutilCniNetwork{}
+	if err := r.Get(ctx, req.NamespacedName, ni); err != nil {
+	   return ctrl.Result{}, client.IgnoreNotFound(err)
+	} else {
+		klog.V(1).Info("Get demo successfully", "Demo", ni.Spec.Foo)
+		klog.V(1).Info("", "Msg", ni.Status.Msg)
+	}
+	if !ni.Status.Created {
+		//TODO 创建
+		_ = r.Create(ctx, ni)
+		ni.Status.Created = true
+	}else{
+		_ = r.Update(ctx, ni)
+	}
 	return ctrl.Result{}, nil
 }
 

@@ -43,6 +43,9 @@ type CNI struct {
 type MutilCniNetworkStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	Msg string `json:"msg"`
+	Status bool `json:"status"`
+	Created bool `json:"created"`
 }
 
 //+kubebuilder:object:root=true

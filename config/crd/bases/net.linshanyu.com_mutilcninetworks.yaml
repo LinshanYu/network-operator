@@ -49,6 +49,20 @@ spec:
             type: object
           status:
             description: MutilCniNetworkStatus defines the observed state of MutilCniNetwork
+            properties:
+              created:
+                type: boolean
+              msg:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file'
+                type: string
+              status:
+                type: boolean
+            required:
+            - created
+            - msg
+            - status
             type: object
         type: object
     served: true
